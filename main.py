@@ -46,7 +46,7 @@ with tf.Session(config=config) as sess:
                      model.z_in: np.random.uniform(-1., 1., [batch_size, num_z]),
                      model.carry: max(1-i/16000., 0),
                      model.g_lr: l_rate, model.d_lr: l_rate,
-                     model.lambda_k: 0.001, model.lambda_noise: 2,
+                     model.gamma: 0.5, model.lambda_k: 0.001, model.lambda_noise: 2,
                      model.training: True}
 
         sess.run(model.train_op, feed_dict=feed_dict)
