@@ -1,6 +1,25 @@
 import tensorflow as tf
 from tensorflow.contrib import layers
-
+#conv2d(inputs, # 输入的张量
+　　 filters, # 卷积过滤器的数量
+    kernel_size, # 卷积窗口的大小
+    strides=(1, 1), # 卷积步长
+    padding='valid', # 可选，默认为 valid，padding 的模式，有 valid 和 same 两种，大小写不区分。
+    data_format='channels_last', # 可选，默认 channels_last，分为 channels_last 和 channels_first 两种模式，代表了输入数据的维度类型，如果是 channels_last，那么输入数据的 shape 为 (batch, height, width, channels)，如果是 channels_first，那么输入数据的 shape 为 (batch, channels, height, width)
+    dilation_rate=(1, 1),# 可选，默认为 (1, 1)，卷积的扩张率，如当扩张率为 2 时，卷积核内部就会有边距，3×3 的卷积核就会变成 5×5。
+    activation=None, # 可选，默认为 None，如果为 None 则是线性激活。
+    use_bias=True, # 可选，默认为 True，是否使用偏置。
+    kernel_initializer=None, # 可选，默认为 None，即权重的初始化方法，如果为 None，则使用默认的 Xavier 初始化方法。
+    bias_initializer=<tensorflow.python.ops.init_ops.Zeros object at 0x000002596A1FD898>, # 可选，默认为零值初始化，即偏置的初始化方法。
+    kernel_regularizer=None,# 可选，默认为 None，施加在权重上的正则项。
+    bias_regularizer=None, # 可选，默认为 None，施加在偏置上的正则项。
+    activity_regularizer=None, # 可选，默认为 None，施加在输出上的正则项。
+    kernel_constraint=None, # 可选，默认为 None，施加在权重上的约束项。
+    bias_constraint=None, # 可选，默认为 None，施加在偏置上的约束项。
+    trainable=True, # 可选，默认为 True，布尔类型，如果为 True，则将变量添加到 GraphKeys.TRAINABLE_VARIABLES 中。
+    name=None, # 可选，默认为 None，卷积层的名称。
+    reuse=None) # 可选，默认为 None，布尔类型，如果为 True，那么如果 name 相同时，会重复利用。
+    input 和tf.nn.conv2d 一样，必须是4维张量，input.shape=[batch, in_height, in_width, in_channels]
 
 def decoder(name, z, num_units, num_repeats, is_training, unit=8, carry=None, batch_norm=False, reuse=False):
 
