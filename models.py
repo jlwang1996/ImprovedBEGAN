@@ -33,6 +33,7 @@ def decoder(name, z, num_units, num_repeats, is_training, unit=8, carry=None, ba
 
         for i in range(num_repeats):
             img = in_x = layers.conv2d(img, num_units, 3, 1, weights_initializer=initializer, activation_fn=tf.nn.elu)
+            #img=[batch,64,64,3]
             img = layers.conv2d(img, num_units, 3, 1, weights_initializer=initializer, biases_initializer=None, activation_fn=tf.nn.elu, normalizer_fn=batch_norm_fn, normalizer_params=normalize_params)
 
             if carry is not None:
