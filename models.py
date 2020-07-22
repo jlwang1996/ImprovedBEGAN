@@ -49,7 +49,7 @@ def decoder(name, z, num_units, num_repeats, is_training, unit=8, carry=None, ba
 
     return out
 
-
+#num_units = 128,num_repeats = 4,num_z = 64,
 def encoder(name, img, num_z, num_units, num_repeats, is_training, unit=8, carry=None, batch_norm=False, reuse=False):
 
     with tf.variable_scope(name, reuse=reuse):
